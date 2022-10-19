@@ -1,0 +1,57 @@
+{
+    "name": "devops-build-vm",
+    "id": "/subscriptions/1934e9e3-9092-4cca-abe7-d50d934ed62c/resourceGroups/devops-rg/providers/Microsoft.Compute/virtualMachines/devops-build-vm",
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "eastus2",
+    "tags": {
+        "team": "devops",
+        "type": "build",
+        "identification": "vm"
+    },
+    "properties": {
+        "vmId": "e44eeb0b-79c2-4969-94fd-9bc23c79bb16",
+        "hardwareProfile": {
+            "vmSize": "Standard_D2s_v3"
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2019-datacenter-gensecond",
+                "version": "latest"
+            },
+            "osDisk": {
+                "osType": "Windows",
+                "name": "devops-build-vm_disk1_0824e1377f44412699196bec6d934dc5",
+                "createOption": "FromImage",
+                "caching": "ReadWrite",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS",
+                    "id": "/subscriptions/1934e9e3-9092-4cca-abe7-d50d934ed62c/resourceGroups/devops-rg/providers/Microsoft.Compute/disks/devops-build-vm_disk1_0824e1377f44412699196bec6d934dc5"
+                },
+                "diskSizeGB": 127
+            },
+            "dataDisks": []
+        },
+        "osProfile": {
+            "computerName": "devops-build-vm",
+            "adminUsername": "devopsuser",
+            "windowsConfiguration": {
+                "provisionVMAgent": true,
+                "enableAutomaticUpdates": false
+            },
+            "secrets": []
+        },
+        "networkProfile": {
+            "networkInterfaces": [
+                {
+                    "id": "/subscriptions/1934e9e3-9092-4cca-abe7-d50d934ed62c/resourceGroups/devops-rg/providers/Microsoft.Network/networkInterfaces/devops-build-vm152",
+                    "properties": {
+                        "deleteOption": "Delete"
+                    }
+                }
+            ]
+        },
+        "provisioningState": "Succeeded"
+    }
+}
