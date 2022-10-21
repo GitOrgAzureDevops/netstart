@@ -64,3 +64,8 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: $(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml
+
+- task: reportgenerator@5
+  inputs:
+    reports: 'coverage.cobertura.xml'
+    targetdir: 'MyCoverage'
