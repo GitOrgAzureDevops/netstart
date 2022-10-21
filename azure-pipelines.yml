@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Default
+  vmImage: 'ubuntu-latest'
 
 variables:
   solution: '**/*.sln'
@@ -25,6 +25,10 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: WhiteSource@21
+  inputs:
+    cwd: '$(System.DefaultWorkingDirectory)'
+
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
@@ -32,12 +36,15 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: publish
+#     publishWebProjects: True
+#     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
-- task: WhiteSource@21
+- task: DotNetCoreCLI@2
+  displayName: Test
   inputs:
-    cwd: '$(System.DefaultWorkingDirectory)'
+    command: 'test'
+    projects: '**/netstarttest.csproj'
+    arguments: '--configuration $(buildConfiguration)'
