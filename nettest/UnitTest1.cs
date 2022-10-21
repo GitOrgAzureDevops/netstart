@@ -1,4 +1,4 @@
-﻿namespace netstarttest;
+﻿namespace nettest;
 
 public class UnitTest1
 {
@@ -8,6 +8,6 @@ public class UnitTest1
         int i = 1;
         bool result = false;
         if (i == 1) result = true;
-        Assert.True(result, "Value should be equal to 1.");
+        Assert.True(result, "Value should be equal to 1");
     }
 }
