@@ -67,5 +67,5 @@ steps:
 
 - task: reportgenerator@5
   inputs:
-    reports: 'coverage.cobertura.xml'
-    targetdir: /home/vsts/work/1/s/**/MyCoverage/
+    reports: coverage.cobertura.xml
+    targetdir: $(Build.SourcesDirectory)/**/MyCoverage
