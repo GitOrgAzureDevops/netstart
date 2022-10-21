@@ -1,4 +1,6 @@
-﻿namespace nettest;
+﻿using netstart.Module;
+
+namespace nettest;
 
 public class UnitTest1
 {
