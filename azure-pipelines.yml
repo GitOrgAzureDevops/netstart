@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Default
+  vmImage: 'ubuntu-latest'
 
 variables:
   solution: '**/*.sln'
@@ -46,5 +46,5 @@ steps:
   displayName: Test
   inputs:
     command: 'test'
-    projects: '**/netstarttest.csproj'
+    projects: '**/nettest.csproj'
     arguments: '--configuration $(buildConfiguration)'
