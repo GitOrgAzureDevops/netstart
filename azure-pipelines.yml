@@ -64,3 +64,6 @@ steps:
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    failIfCoverageEmpty: false
+    reportDirectory: $(Build.SourcesDirectory)\coverlet\reports\
+   condition: succeededOrFailed()
