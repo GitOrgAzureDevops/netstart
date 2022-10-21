@@ -62,8 +62,7 @@ steps:
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Results'
   inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    codeCoverageTool: Cobertura
+    summaryFileLocation: $(Build.SourcesDirectory)\coverlet\reports\Cobertura.xml
     failIfCoverageEmpty: false
     reportDirectory: $(Build.SourcesDirectory)\coverlet\reports\
-   condition: succeededOrFailed()
